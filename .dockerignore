@@ -1,0 +1,11 @@
+**
+!Dockerfile
+!requirements-api.txt
+!src/
+!src/**
+!serving_bundle/
+!serving_bundle/model.joblib
+!serving_bundle/metadata.json
+!serving_bundle/history.csv
+**/__pycache__/
+**/*.pyc

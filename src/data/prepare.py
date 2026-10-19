@@ -10,6 +10,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from src.features.history import build_history_features
+
 ROOT = Path(__file__).resolve().parents[2]
 REQUIRED = {"Invoice", "StockCode", "Description", "Quantity", "InvoiceDate",
             "Price", "Customer ID", "Country"}
@@ -112,17 +114,8 @@ def make_examples(daily, horizon=7, history=28):
     parts = []
     for product, group in daily.groupby("product_id", sort=True):
         group = group.sort_values("date").reset_index(drop=True).copy()
-        if group["date"].duplicated().any() or not group["date"].diff().dropna().eq(pd.Timedelta(days=1)).all():
-            raise ValueError("Daily input must have unique consecutive calendar dates per product")
         units = group["units"]
-        past = units.shift(1)
-        group["lag_1"] = past
-        group["lag_7"] = units.shift(7)
-        group["mean_7"] = past.rolling(7, min_periods=7).mean()
-        group["mean_28"] = past.rolling(history, min_periods=history).mean()
-        group["std_28"] = past.rolling(history, min_periods=history).std(ddof=0)
-        group["weekday"] = group["date"].dt.dayofweek
-        group["month"] = group["date"].dt.month
+        group[FEATURES] = build_history_features(group, history)
         group["target_units_7d"] = units.iloc[::-1].rolling(horizon, min_periods=horizon).sum().iloc[::-1]
         group["target_end"] = group["date"] + pd.Timedelta(days=horizon - 1)
         group["history_end"] = group["date"] - pd.Timedelta(days=1)

@@ -1,0 +1,1 @@
+"""Small, explicit operational diagnostics."""

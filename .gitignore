@@ -8,6 +8,7 @@ __pycache__/
 !.env.example
 /data/
 /models/
+/serving_bundle/
 mlruns/
 mlartifacts/
 *.db
@@ -16,3 +17,5 @@ mlartifacts/
 *.log
 .DS_Store
 Thumbs.db
+/reports/*tests.xml
+/dist/
