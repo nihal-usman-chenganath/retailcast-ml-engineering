@@ -11,6 +11,7 @@ from matplotlib.patches import FancyArrowPatch, FancyBboxPatch  # noqa: E402
 
 def main():
     root = Path(__file__).resolve().parents[1]
+    plt.rcParams["svg.fonttype"] = "none"
     fig, ax = plt.subplots(figsize=(13, 8))
     ax.set(xlim=(0, 13), ylim=(0, 8))
     ax.axis("off")
@@ -52,8 +53,11 @@ def main():
     directory = root / "reports/figures"
     directory.mkdir(parents=True, exist_ok=True)
     for extension in ["png", "svg"]:
-        fig.savefig(directory / f"retailcast-architecture.{extension}", dpi=180,
+        output = directory / f"retailcast-architecture.{extension}"
+        fig.savefig(output, dpi=180,
                     bbox_inches="tight", facecolor="white")
+        if extension == "svg":
+            output.write_text("\n".join(line.rstrip() for line in output.read_text().splitlines()) + "\n")
     plt.close(fig)
     print("Exported architecture PNG and editable SVG.")
 
