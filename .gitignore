@@ -11,6 +11,8 @@ __pycache__/
 mlruns/
 mlartifacts/
 *.db
+*.db-shm
+*.db-wal
 *.log
 .DS_Store
 Thumbs.db
