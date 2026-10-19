@@ -62,3 +62,25 @@ Prepare the first LinkedIn post after the initial data inspection confirms scope
 - Coding-assistant implemented and executed this milestone at the learner's
   request; no manual command execution or understanding check is claimed.
 - Next milestone: training-only EDA, visualizations, and baseline design.
+
+## 2026-10-19 — Training-only EDA and baseline protocol
+
+- Implemented and ran `python -m src.data.eda` against checksum-verified inputs.
+  Restricted analysis to January–June 2011 training outcomes. Did not open
+  validation/test forecasting files or evaluate their outcomes.
+- Created and visually inspected six standalone PNG charts covering time series,
+  product activity, targets, weekdays, feature distributions, and correlations.
+  Corrected footer/axis-label overlaps found in the initial visual review.
+- Recorded actual aggregate results in `reports/training-eda.json` and explained
+  their meaning and limits in `docs/training-eda.md`.
+- Found 47.02% zero-sales product-days, 514 zero targets, a median seven-day
+  target of 223 units, and a maximum seven-day target of 4,562 units.
+- Preserved extreme values and the original product selection. No transformations
+  used only for plotting have been silently introduced into model features.
+- Defined previous-week and four-week-average baselines, Ridge and random forest
+  candidates, and validation-based selection before fitting any models.
+- Added three scope/provenance tests. All 15 tests passed without warnings after
+  pinning the plotting parser to a compatible version; `pip check` passed.
+- Prepared an EDA LinkedIn draft with actual measurements and the target chart.
+- Next: implement baselines, candidate model pipelines, and MLflow tracking;
+  compare on validation, freeze selection, then evaluate the final model on test.

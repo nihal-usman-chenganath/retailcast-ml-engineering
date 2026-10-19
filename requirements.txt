@@ -1,4 +1,4 @@
-# Phase 1: reading and inspecting the original Excel dataset.
+# Data discovery, preparation, plotting, and automated checks.
 # Includes resolved dependencies from the verified Python 3.11 environment.
 et_xmlfile==2.0.0
 numpy==2.4.6
@@ -13,3 +13,10 @@ colorama==0.4.6; sys_platform == "win32"
 iniconfig==2.1.0
 packaging==25.0
 pluggy==1.5.0
+matplotlib==3.10.1
+contourpy==1.3.3
+cycler==0.12.1
+fonttools==4.67.0
+kiwisolver==1.5.1
+pillow==13.0.0
+pyparsing==3.2.3

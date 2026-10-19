@@ -1,6 +1,6 @@
 # RetailCast — Retail Sales Forecasting & Prediction API
 
-Status: Data preparation implemented and verified; modeling has not started.
+Status: Data preparation and training-only EDA verified; modeling has not started.
 
 RetailCast will forecast next-seven-day recorded product sales using historical
 retail transactions. It is a learning and portfolio project; no model has been
@@ -57,5 +57,25 @@ local in `data/processed/`; aggregate evidence is in
 
 Verified preparation output: 20 selected products; 3,500 training examples,
 1,720 validation examples, and 1,260 test examples. These are forecasting rows,
-not original transaction counts. The 12 preparation tests pass. See the report
+not original transaction counts. See the report
 for exact date boundaries and filtering counts.
+
+## Training-data exploration
+
+```powershell
+.\.venv\Scripts\python.exe -m src.data.eda
+```
+
+The EDA script checks source checksums, analyzes the training calendar only, and
+exports six charts plus `reports/training-eda.json`. It does not open validation
+or test forecasting files. All 15 current tests pass, including scope guards.
+
+Key findings: 47.02% of training product-days have zero recorded sales; the
+median seven-day target is 223 units and its maximum is 4,562 units. Products
+vary widely in volume, and large observations have been retained.
+
+![Training target distribution](reports/figures/training-target-distribution.png)
+
+Read [the EDA findings](docs/training-eda.md) for all charts and limitations, and
+[the baseline/evaluation protocol](docs/baseline-and-evaluation-plan.md) for the
+planned model comparison. These descriptive statistics are not model accuracy.

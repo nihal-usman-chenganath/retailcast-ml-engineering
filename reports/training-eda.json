@@ -1,0 +1,273 @@
+{
+  "scope": "Training outcomes only; validation/test example files not read",
+  "training_examples": 3500,
+  "daily_product_rows": 3620,
+  "daily_start": "2011-01-01",
+  "daily_end": "2011-06-30",
+  "product_count": 20,
+  "training_missing_values": {
+    "product_id": 0,
+    "date": 0,
+    "history_end": 0,
+    "target_end": 0,
+    "lag_1": 0,
+    "lag_7": 0,
+    "mean_7": 0,
+    "mean_28": 0,
+    "std_28": 0,
+    "weekday": 0,
+    "month": 0,
+    "target_units_7d": 0
+  },
+  "target_quantiles": {
+    "0.0": 0.0,
+    "0.25": 5.0,
+    "0.5": 223.0,
+    "0.75": 498.0,
+    "0.9": 901.0,
+    "0.95": 1269.199999999999,
+    "0.99": 2689.0599999999986,
+    "1.0": 4562.0
+  },
+  "target_mean": 365.34542857142856,
+  "zero_target_share": 0.14685714285714285,
+  "zero_daily_sales_share": 0.47016574585635357,
+  "training_recorded_units": 186223,
+  "daily_max_units_single_product": 4314,
+  "per_product": {
+    "22867": {
+      "mean_daily_units": 0.10497237569060773,
+      "zero_day_share": 0.9392265193370166
+    },
+    "22952": {
+      "mean_daily_units": 0.24861878453038674,
+      "zero_day_share": 0.9060773480662984
+    },
+    "22865": {
+      "mean_daily_units": 0.6243093922651933,
+      "zero_day_share": 0.8839779005524862
+    },
+    "22910": {
+      "mean_daily_units": 0.712707182320442,
+      "zero_day_share": 0.9060773480662984
+    },
+    "84347": {
+      "mean_daily_units": 0.850828729281768,
+      "zero_day_share": 0.8121546961325967
+    },
+    "22086": {
+      "mean_daily_units": 2.707182320441989,
+      "zero_day_share": 0.850828729281768
+    },
+    "22740": {
+      "mean_daily_units": 27.325966850828728,
+      "zero_day_share": 0.585635359116022
+    },
+    "21232": {
+      "mean_daily_units": 28.2707182320442,
+      "zero_day_share": 0.287292817679558
+    },
+    "21213": {
+      "mean_daily_units": 35.812154696132595,
+      "zero_day_share": 0.3149171270718232
+    },
+    "84946": {
+      "mean_daily_units": 38.81767955801105,
+      "zero_day_share": 0.287292817679558
+    },
+    "84991": {
+      "mean_daily_units": 46.353591160220994,
+      "zero_day_share": 0.2596685082872928
+    },
+    "22178": {
+      "mean_daily_units": 65.78453038674033,
+      "zero_day_share": 0.20994475138121546
+    },
+    "22616": {
+      "mean_daily_units": 71.6353591160221,
+      "zero_day_share": 0.4198895027624309
+    },
+    "21977": {
+      "mean_daily_units": 72.37569060773481,
+      "zero_day_share": 0.27071823204419887
+    },
+    "84879": {
+      "mean_daily_units": 73.39226519337016,
+      "zero_day_share": 0.19889502762430938
+    },
+    "21212": {
+      "mean_daily_units": 98.9060773480663,
+      "zero_day_share": 0.20441988950276244
+    },
+    "22197": {
+      "mean_daily_units": 100.03314917127072,
+      "zero_day_share": 0.23204419889502761
+    },
+    "85123A": {
+      "mean_daily_units": 104.82872928176796,
+      "zero_day_share": 0.1878453038674033
+    },
+    "85099B": {
+      "mean_daily_units": 115.27624309392266,
+      "zero_day_share": 0.20994475138121546
+    },
+    "84077": {
+      "mean_daily_units": 144.79558011049724,
+      "zero_day_share": 0.43646408839779005
+    }
+  },
+  "weekday_mean_product_day_units": {
+    "0": 53.43269230769231,
+    "1": 75.56538461538462,
+    "2": 71.37884615384615,
+    "3": 69.03076923076924,
+    "4": 63.712,
+    "5": 0.0,
+    "6": 27.451923076923077
+  },
+  "spearman_correlations": {
+    "lag_1": {
+      "lag_1": 1.0,
+      "lag_7": 0.423466015285209,
+      "mean_7": 0.6141858759372147,
+      "mean_28": 0.5400644292744141,
+      "std_28": 0.48619314163749205,
+      "target_units_7d": 0.5234454555388786
+    },
+    "lag_7": {
+      "lag_1": 0.423466015285209,
+      "lag_7": 1.0,
+      "mean_7": 0.6175694367564061,
+      "mean_28": 0.526589555508399,
+      "std_28": 0.4609732057296201,
+      "target_units_7d": 0.49764355770401175
+    },
+    "mean_7": {
+      "lag_1": 0.6141858759372147,
+      "lag_7": 0.6175694367564061,
+      "mean_7": 1.0,
+      "mean_28": 0.8338403052350358,
+      "std_28": 0.7734800002856721,
+      "target_units_7d": 0.7269089058168979
+    },
+    "mean_28": {
+      "lag_1": 0.5400644292744141,
+      "lag_7": 0.526589555508399,
+      "mean_7": 0.8338403052350358,
+      "mean_28": 1.0,
+      "std_28": 0.9590547530496999,
+      "target_units_7d": 0.7823470910007077
+    },
+    "std_28": {
+      "lag_1": 0.48619314163749205,
+      "lag_7": 0.4609732057296201,
+      "mean_7": 0.7734800002856721,
+      "mean_28": 0.9590547530496999,
+      "std_28": 1.0,
+      "target_units_7d": 0.7280300595532627
+    },
+    "target_units_7d": {
+      "lag_1": 0.5234454555388786,
+      "lag_7": 0.49764355770401175,
+      "mean_7": 0.7269089058168979,
+      "mean_28": 0.7823470910007077,
+      "std_28": 0.7280300595532627,
+      "target_units_7d": 1.0
+    }
+  },
+  "per_product_target_outlier_flags": {
+    "21212": {
+      "upper_iqr_fence": 1314.0,
+      "examples_above_upper_fence": 20
+    },
+    "21213": {
+      "upper_iqr_fence": 624.0,
+      "examples_above_upper_fence": 7
+    },
+    "21232": {
+      "upper_iqr_fence": 453.5,
+      "examples_above_upper_fence": 1
+    },
+    "21977": {
+      "upper_iqr_fence": 1233.25,
+      "examples_above_upper_fence": 14
+    },
+    "22086": {
+      "upper_iqr_fence": 15.0,
+      "examples_above_upper_fence": 25
+    },
+    "22178": {
+      "upper_iqr_fence": 1105.5,
+      "examples_above_upper_fence": 0
+    },
+    "22197": {
+      "upper_iqr_fence": 1501.25,
+      "examples_above_upper_fence": 8
+    },
+    "22616": {
+      "upper_iqr_fence": 2314.75,
+      "examples_above_upper_fence": 0
+    },
+    "22740": {
+      "upper_iqr_fence": 577.0,
+      "examples_above_upper_fence": 7
+    },
+    "22865": {
+      "upper_iqr_fence": 7.5,
+      "examples_above_upper_fence": 14
+    },
+    "22867": {
+      "upper_iqr_fence": 2.5,
+      "examples_above_upper_fence": 21
+    },
+    "22910": {
+      "upper_iqr_fence": 5.0,
+      "examples_above_upper_fence": 34
+    },
+    "22952": {
+      "upper_iqr_fence": 2.5,
+      "examples_above_upper_fence": 17
+    },
+    "84077": {
+      "upper_iqr_fence": 3038.5,
+      "examples_above_upper_fence": 6
+    },
+    "84347": {
+      "upper_iqr_fence": 20.0,
+      "examples_above_upper_fence": 7
+    },
+    "84879": {
+      "upper_iqr_fence": 1145.5,
+      "examples_above_upper_fence": 6
+    },
+    "84946": {
+      "upper_iqr_fence": 631.75,
+      "examples_above_upper_fence": 0
+    },
+    "84991": {
+      "upper_iqr_fence": 728.75,
+      "examples_above_upper_fence": 10
+    },
+    "85099B": {
+      "upper_iqr_fence": 1716.75,
+      "examples_above_upper_fence": 3
+    },
+    "85123A": {
+      "upper_iqr_fence": 1213.25,
+      "examples_above_upper_fence": 17
+    }
+  },
+  "outlier_policy": "Diagnostic only; no clipping or removal performed",
+  "inputs_sha256": {
+    "train.csv": "8f46ad6c692c59bf3e91f0c7d01a012ffe92be1bbea5465051cebfd076a7898a",
+    "daily_sales.csv": "3c626df4297f2b810b650285a6d807636a7749f8916ec8e44f7e8bab46457f5d"
+  },
+  "figures": [
+    "reports/figures/training-correlations.png",
+    "reports/figures/training-feature-distributions.png",
+    "reports/figures/training-product-profiles.png",
+    "reports/figures/training-sales-history.png",
+    "reports/figures/training-target-distribution.png",
+    "reports/figures/training-weekday-pattern.png"
+  ]
+}
