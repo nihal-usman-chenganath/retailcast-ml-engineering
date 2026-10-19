@@ -30,19 +30,23 @@ Official action usage: [checkout](https://github.com/actions/checkout) and
 .\.venv\Scripts\python.exe -m pip check
 ```
 
-These verify local checks; they are not proof that a hosted GitHub Actions run
-has executed. The CLI was not authenticated when publication was attempted, and
-this project has no GitHub remote. Hosted execution is therefore pending.
+These verify local checks. Hosted execution has also been verified separately:
+[run 39309251409](https://github.com/nihal-usman-chenganath/retailcast-ml-engineering/actions/runs/39309251409)
+passed installation, lint, all 54 tests, dependency checks, fixture creation,
+Docker build, HTTP smoke checks, and artifact upload. `reports/github-ci.json`
+records the run and downloaded test-report counts.
 
-## Publish once authentication is available
+## Repository and future pushes
 
-All commands below run from the repository root. The project is intended for
-the existing `nihal-usman-chenganath` portfolio account. Authentication must be
-completed by the account owner; do not paste passwords/tokens into chat or code.
+The public repository is
+[nihal-usman-chenganath/retailcast-ml-engineering](https://github.com/nihal-usman-chenganath/retailcast-ml-engineering).
+Account-owner device authorization enabled CLI publishing; no password/token was
+shared in chat. Clone it to reproduce the code, or push future reviewed changes
+from an authenticated checkout.
 
 ```powershell
-gh auth login
-gh repo create retailcast-ml-engineering --public --source . --remote origin --push
+git clone https://github.com/nihal-usman-chenganath/retailcast-ml-engineering.git
+cd retailcast-ml-engineering
 gh run list --limit 5
 ```
 
@@ -62,5 +66,5 @@ indicate dependency/network issues; lint errors identify code locations; pytest
 failures show expected versus actual behavior; Docker failures expose build or
 startup logs. Fix locally, rerun the affected checks, commit, and push a new run.
 
-Do not add a passing badge or claim successful GitHub CI until a hosted run is
-actually green. There is no fabricated public repository URL in this project.
+The README links a real status badge and successful run. Future failures should
+remain visible rather than replacing the badge with a static passing image.

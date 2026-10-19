@@ -65,8 +65,9 @@ inventory savings or claimed production forecasting suitability.”
 16. **What would you improve next?** More appropriate product/seasonality
     modeling, business acceptance criteria, richer available-at-cutoff signals,
     and a new evaluation design. Do not tune against the already inspected test.
-17. **Did GitHub CI actually run?** State the current verified release status;
-    the authored workflow is not itself evidence of a successful hosted run.
+17. **Did GitHub CI actually run?** Yes: the README links a successful hosted
+    run with 54 passing tests, Docker build, and HTTP smoke checks. The authored
+    workflow alone would not have established this.
 18. **What did you personally do?** Describe decisions you understand and work
     with coding-assistant support accurately, using the development journal.
 

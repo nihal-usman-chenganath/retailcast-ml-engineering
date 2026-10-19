@@ -1,0 +1,76 @@
+{
+  "databaseId": 39309251409,
+  "headSha": "07060b90c56cd2af0a0a3b4f8556fee1eb06640c",
+  "status": "completed",
+  "conclusion": "success",
+  "url": "https://github.com/nihal-usman-chenganath/retailcast-ml-engineering/actions/runs/39309251409",
+  "workflowName": "RetailCast checks",
+  "test_counts": {
+    "tests": 54,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "steps": [
+    {
+      "name": "Set up job",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@v6",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/setup-python@v6",
+      "conclusion": "success"
+    },
+    {
+      "name": "Install dependencies",
+      "conclusion": "success"
+    },
+    {
+      "name": "Check code quality",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run tests and dependency checks",
+      "conclusion": "success"
+    },
+    {
+      "name": "Prepare explicit synthetic CI bundle",
+      "conclusion": "success"
+    },
+    {
+      "name": "Build container",
+      "conclusion": "success"
+    },
+    {
+      "name": "Start container and check HTTP behavior",
+      "conclusion": "success"
+    },
+    {
+      "name": "Container logs",
+      "conclusion": "success"
+    },
+    {
+      "name": "Stop CI container",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/upload-artifact@v4",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/setup-python@v6",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@v6",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "conclusion": "success"
+    }
+  ]
+}

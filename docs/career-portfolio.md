@@ -1,7 +1,7 @@
 # Career portfolio wording
 
-These drafts describe verified local engineering work. No live cloud service or
-successful hosted GitHub Actions run is claimed. Adapt them to your actual
+These drafts describe verified local engineering work and a successful hosted
+GitHub Actions run. No live cloud service is claimed. Adapt them to your actual
 contribution and ability to explain the implementation; the development journal
 records coding-assistant support.
 
@@ -53,8 +53,8 @@ records coding-assistant support.
 - Automated pytest and lint checks and authored a GitHub Actions workflow for
   tests, container build, and synthetic-fixture HTTP smoke verification.
 
-The workflow is authored and locally checked; only add “GitHub CI passed” after
-an actual hosted run succeeds.
+Hosted GitHub CI passed all 54 tests, lint, the Docker build, and HTTP smoke checks;
+the successful run is linked in the README.
 
 ## Data Engineer CV
 
@@ -74,7 +74,7 @@ saved preprocessing/model bundles, FastAPI, Docker, automated tests, and basic
 operational diagnostics. The forest achieved a modest 1.76% validation MAE
 reduction over the stronger baseline; final test MAE was 389.07 units (R² 0.162).
 The API demonstrates historical replay, not a live inventory recommendation tool.
-GitHub publication and hosted workflow confirmation remain separate release gates.
+The public GitHub repository includes a successful hosted workflow run.
 
 ## GitHub profile README snippet
 
@@ -83,4 +83,5 @@ GitHub publication and hosted workflow confirmation remain separate release gate
 An end-to-end local ML system with chronological evaluation, MLflow tracking,
 shared feature engineering, typed FastAPI predictions, Docker, and automated
 checks. Includes transparent baseline comparisons, documented limitations, and
-a development journal. Repository link: add the actual URL after publication.
+a development journal and verified GitHub CI.
+Repository: https://github.com/nihal-usman-chenganath/retailcast-ml-engineering.

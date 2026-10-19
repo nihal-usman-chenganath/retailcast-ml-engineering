@@ -48,7 +48,7 @@ def main():
     ax.add_patch(FancyBboxPatch((.4, .25), 11.9, .65, boxstyle="round,pad=0.12",
                                facecolor="#FFF4E8", edgecolor="#CB651D"))
     ax.text(6.35, .57, "Docker local deployment • Tests + lint • Logs + timing counters\n"
-            "GitHub Actions configured; hosted execution pending authentication",
+            "GitHub Actions: lint, 54 tests, Docker build, and HTTP smoke checks passed",
             ha="center", va="center", fontsize=10, color="#713F12")
     directory = root / "reports/figures"
     directory.mkdir(parents=True, exist_ok=True)

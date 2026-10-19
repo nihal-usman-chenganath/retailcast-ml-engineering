@@ -41,8 +41,8 @@ The model produces the same structured responses through HTTP inside Docker.
 
 I also authored a GitHub Actions workflow for linting, tests, container build,
 and a synthetic-fixture HTTP smoke check. The fixture is explicitly labelled and
-is not used to claim forecasting performance. Hosted workflow execution remains
-pending GitHub authentication/publication.
+is not used to claim forecasting performance. Hosted GitHub Actions passed
+lint, all 54 tests, Docker build, and HTTP smoke checks.
 
 The main lesson is that packaging and testing need evidence: a Dockerfile alone
 does not prove a container runs, and a workflow file alone does not prove CI passed.
@@ -70,8 +70,8 @@ The engineering evidence includes shared-feature parity across 6,480 examples,
 five tracked MLflow runs, versioned/checksummed artifacts, and 54 tests. A local
 container serves real predictions with request validation and operational logs.
 
-GitHub publication and hosted CI confirmation are still release gates. Cloud
-hosting is optional; I selected a documented local deployment after reviewing
+The source is public and hosted GitHub CI passed. Cloud hosting is optional;
+I selected a documented local deployment after reviewing
 current hosting costs and free-tier restrictions.
 
 My next learning goal is explaining each boundary: which data exists at the
@@ -82,6 +82,9 @@ https://doi.org/10.24432/C5CG6D (CC BY 4.0).
 
 #MachineLearningEngineering #MLOps #FastAPI #Docker #MLflow #DataScience
 
-Architecture: use the README Mermaid diagram. Charts: use the validation
-comparison and test forecast history. Add the actual GitHub URL only after
-publication, and do not claim a hosted green check before it exists.
+GitHub: https://github.com/nihal-usman-chenganath/retailcast-ml-engineering
+CI evidence: https://github.com/nihal-usman-chenganath/retailcast-ml-engineering/actions/runs/39309251409
+
+Architecture: use the README Mermaid diagram or exported PNG. Charts: use the
+validation comparison and test forecast history. No LinkedIn post was published
+automatically.

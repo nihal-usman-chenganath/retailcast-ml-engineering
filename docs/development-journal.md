@@ -157,3 +157,20 @@ Prepare the first LinkedIn post after the initial data inspection confirms scope
   CV/profile descriptions, and 18 interview questions plus practical self-checks.
 - Original success criteria are not marked fully complete: hosted GitHub CI and
   demonstrated learner understanding remain unverified. No posts were published.
+
+## 2026-10-19 — Public GitHub release and hosted CI
+
+- Account owner completed GitHub CLI device authorization. Verified the active
+  account is `nihal-usman-chenganath`; no password/token was shared in chat.
+- Created and pushed the public `retailcast-ml-engineering` repository. Reviewed
+  tracked files before publishing; raw data, model/history bundles, credentials,
+  and local test reports remained ignored.
+- Verified hosted Actions run `39309251409` on source commit `07060b9`: all steps
+  succeeded, including dependency installation/checks, lint, tests, labelled CI
+  fixture creation, Docker build, startup, HTTP checks, and report upload.
+- Downloaded and parsed the hosted test artifact: 54 tests, zero failures/errors.
+- Updated the README, real workflow badge, release status, architecture export,
+  CV/LinkedIn drafts, and machine-readable verification to reflect actual success.
+- Technical/portfolio delivery is complete with local Docker deployment. The
+  learner's architecture explanation remains an unassessed learning checkpoint.
+  No cloud service or LinkedIn post was published.

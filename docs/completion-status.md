@@ -16,25 +16,27 @@ account-dependent publishing and the learner's ability to explain the work.
 | Docker | Image built; non-root, read-only Compose service healthy; HTTP smoke checks passed |
 | Tests and lint | All 54 tests pass on Windows and Linux; Ruff and dependency checks pass in both |
 | Cross-platform predictions | All 1,260 Linux-container forecasts match saved Windows forecasts within numerical tolerance |
-| CI workflow | Authored and YAML-checked; hosted execution not yet possible without GitHub publication/authentication |
+| CI workflow | Hosted run 39309251409 passed lint, 54 tests, dependencies, Docker build, and HTTP smoke checks |
 | Deployment | Local Docker alternative selected and working; no cloud service or hosting bill created |
 | Operations | Structured request logs, counters/timing, model versions, range flags, offline feature comparison |
 | README and architecture | Setup, metrics, serving, Docker, CI status, limitations, charts, and architecture documented |
 | Portfolio deliverables | Journal, LinkedIn drafts, CV/profile descriptions, and interview/self-check guide prepared |
-| GitHub public repository | Pending; CLI not signed in, no remote configured |
+| GitHub public repository | Published: nihal-usman-chenganath/retailcast-ml-engineering |
 | Learner understanding | Not assessed; exercises and interview walkthrough are available |
 
-## Remaining external release gate
+## Verified release and remaining learning checkpoint
 
-The GitHub connector can access the existing personal account, but its available
-tools do not create repositories. The local GitHub CLI is not authenticated.
-No credentials were extracted or requested in chat. Once the account owner signs
-in through `gh auth login`, repository creation/push and hosted workflow
-verification can be completed using the prepared code. See `ci-and-github.md`.
+After account-owner device authorization, the CLI published the
+[public repository](https://github.com/nihal-usman-chenganath/retailcast-ml-engineering).
+[Hosted run 39309251409](https://github.com/nihal-usman-chenganath/retailcast-ml-engineering/actions/runs/39309251409)
+completed successfully, including Docker startup and HTTP smoke checks. The
+downloaded JUnit artifact confirms all 54 tests passed with zero failures/errors.
+No raw dataset, model bundle, credentials, or local machine test reports were pushed.
 
-The project is **not marked fully complete under the original success criteria**
-until a hosted GitHub Actions run succeeds and the learner can explain the
-architecture. No passing badge, live cloud URL, or comprehension claim is invented.
+The technical delivery and portfolio artifacts are complete with the allowed
+local-deployment alternative. The original learning criterion remains unassessed:
+the learner should complete `interview-preparation.md` and demonstrate the
+architecture walkthrough. No cloud URL or comprehension claim is invented.
 
 ## Evidence files
 
@@ -44,7 +46,7 @@ architecture. No passing badge, live cloud URL, or comprehension claim is invent
 - `reports/feature-drift.json` and `reports/figures/`
 - `reports/system-verification.json` summarizes both test suites and runtime checks.
 - Local test XML reports are ignored by Git to avoid publishing machine details.
-- `.github/workflows/ci.yml` is configured, not proof of hosted execution.
+- `reports/github-ci.json` and the linked GitHub run establish hosted execution.
 
 The existing upstream test-client deprecation warning is recorded rather than
 hidden; it does not prevent the current behavior/tests from passing. The earlier

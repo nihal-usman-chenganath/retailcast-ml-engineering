@@ -1,8 +1,13 @@
 # RetailCast — Retail Sales Forecasting & Prediction API
 
-Status: Local ML pipeline, FastAPI, Docker deployment, and automated tests are
-implemented and verified. GitHub Actions is configured; publication and a hosted
-workflow run remain pending GitHub authentication. No cloud deployment is claimed.
+Status: Local ML pipeline, FastAPI, Docker deployment, automated tests, and hosted
+GitHub Actions are verified. The source repository is public. No cloud deployment
+is claimed; local Docker is the selected deployment alternative.
+
+[![RetailCast checks](https://github.com/nihal-usman-chenganath/retailcast-ml-engineering/actions/workflows/ci.yml/badge.svg)](https://github.com/nihal-usman-chenganath/retailcast-ml-engineering/actions/workflows/ci.yml)
+
+[Repository](https://github.com/nihal-usman-chenganath/retailcast-ml-engineering) ·
+[Verified hosted CI run](https://github.com/nihal-usman-chenganath/retailcast-ml-engineering/actions/runs/39309251409)
 
 RetailCast will forecast next-seven-day recorded product sales using historical
 retail transactions. A random forest has been trained and evaluated under the
@@ -37,7 +42,7 @@ flowchart TD
     J --> M[Request logs, timing, and counters]
     N[pytest and Ruff] --> J
     O[Docker local deployment] --> J
-    P[GitHub Actions configured; hosted run pending] --> N
+    P[GitHub Actions: lint, tests, Docker and HTTP checks] --> N
 ```
 
 Python 3.11, Pandas/NumPy, scikit-learn, MLflow with local SQLite storage, joblib,
@@ -253,9 +258,10 @@ and monitoring diagnostics. Real-data checks also verified feature parity across
 
 The CI workflow installs dependencies, runs lint/tests, builds a synthetic-fixture
 container, and checks HTTP behavior. That fixture is clearly labelled and has no
-real model performance claims. **No hosted GitHub Actions success is claimed**;
-the local GitHub CLI is not authenticated and no project remote has been created.
-See [CI/publication instructions](docs/ci-and-github.md).
+real model performance claims. Hosted GitHub Actions passed lint, all 54 tests,
+dependency checks, fixture creation, Docker build, and HTTP smoke verification.
+See [the verified run](https://github.com/nihal-usman-chenganath/retailcast-ml-engineering/actions/runs/39309251409)
+and [CI instructions](docs/ci-and-github.md).
 
 Request IDs, structured logs, process counters, model versions, range flags, and
 an offline feature-distribution comparison provide monitoring basics. They are

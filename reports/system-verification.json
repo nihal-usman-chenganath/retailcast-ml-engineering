@@ -28,7 +28,10 @@
     "memory_limit_bytes": 805306368,
     "cpu_limit": 1.0
   },
-  "github_actions_status": "configured; not executed on GitHub; authentication/publication pending",
+  "github_actions_status": "completed successfully on GitHub",
   "cloud_status": "not deployed; documented local Docker alternative selected",
-  "known_warning": "Upstream test-client httpx deprecation; tests pass"
+  "known_warning": "Upstream test-client httpx deprecation; tests pass",
+  "github_actions_url": "https://github.com/nihal-usman-chenganath/retailcast-ml-engineering/actions/runs/39309251409",
+  "github_actions_verified_commit": "07060b90c56cd2af0a0a3b4f8556fee1eb06640c",
+  "github_repository": "https://github.com/nihal-usman-chenganath/retailcast-ml-engineering"
 }
