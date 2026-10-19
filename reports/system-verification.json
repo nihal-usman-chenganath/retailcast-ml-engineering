@@ -1,0 +1,34 @@
+{
+  "test_suites": {
+    "local-tests.xml": {
+      "tests": 54,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "linux-tests.xml": {
+      "tests": 54,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "ruff": "passed on Windows and Linux",
+  "dependency_checks": "passed on Windows and Linux and runtime container",
+  "feature_parity_examples": 6480,
+  "cross_platform_prediction_examples": 1260,
+  "maximum_cross_platform_prediction_difference": 2.2737367544323206e-13,
+  "native_and_container_http_responses_match": true,
+  "container": {
+    "image": "retailcast:local",
+    "image_id": "sha256:3debc7d6888516de910796db8c603053664e25c1eb9074f221197473e096ff18",
+    "health": "healthy",
+    "user": "10001:10001",
+    "read_only": true,
+    "memory_limit_bytes": 805306368,
+    "cpu_limit": 1.0
+  },
+  "github_actions_status": "configured; not executed on GitHub; authentication/publication pending",
+  "cloud_status": "not deployed; documented local Docker alternative selected",
+  "known_warning": "Upstream test-client httpx deprecation; tests pass"
+}

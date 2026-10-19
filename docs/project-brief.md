@@ -55,4 +55,5 @@ history only. Chronological examples are prepared for January–June 2011 traini
 July–September validation, and October–December testing, with target-window
 separation and incomplete final windows excluded. Four candidates have now been
 compared and a random forest refitted/evaluated; see `model-results.md` for the
-actual results and their limitations. API serving is the next milestone.
+actual results and their limitations. FastAPI now serves the verified model in
+a local Docker deployment; GitHub publication and hosted CI are pending.

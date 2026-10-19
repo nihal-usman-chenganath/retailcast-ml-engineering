@@ -1,7 +1,8 @@
 # RetailCast — Retail Sales Forecasting & Prediction API
 
-Status: Data preparation, EDA, modeling, and local MLflow tracking verified.
-FastAPI, Docker, CI, and deployment are not implemented yet.
+Status: Local ML pipeline, FastAPI, Docker deployment, and automated tests are
+implemented and verified. GitHub Actions is configured; publication and a hosted
+workflow run remain pending GitHub authentication. No cloud deployment is claimed.
 
 RetailCast will forecast next-seven-day recorded product sales using historical
 retail transactions. A random forest has been trained and evaluated under the
@@ -15,6 +16,66 @@ Implementation will proceed through data inspection, preparation and EDA,
 baseline modeling, MLflow tracking, FastAPI serving, tests, Docker, CI, and a
 deployment decision. Each major phase produces a verified result and an
 explanation of the implementation and its limitations.
+
+## Architecture and stack
+
+```mermaid
+flowchart TD
+    A[UCI retail workbook] --> B[Schema checks and source precedence]
+    B --> C[Daily product histories]
+    C --> D[Shared time-safe feature code]
+    D --> E[Chronological model comparison]
+    E --> F[MLflow runs and frozen model selection]
+    F --> G[Saved preprocessing and model]
+    C --> H[Verified local serving bundle]
+    G --> H
+    I[Product code and forecast date] --> J[FastAPI and Pydantic]
+    H --> J
+    J --> K[Historical features at forecast cutoff]
+    D -. same feature function .-> K
+    K --> L[Versioned seven-day prediction JSON]
+    J --> M[Request logs, timing, and counters]
+    N[pytest and Ruff] --> J
+    O[Docker local deployment] --> J
+    P[GitHub Actions configured; hosted run pending] --> N
+```
+
+Python 3.11, Pandas/NumPy, scikit-learn, MLflow with local SQLite storage, joblib,
+FastAPI/Pydantic/Uvicorn, pytest, Ruff, and Docker/Compose. PostgreSQL was not
+added because this small read-only service has no transactional ingestion need.
+The serving dependency file excludes MLflow and training/plotting libraries.
+
+[Architecture PNG for sharing](reports/figures/retailcast-architecture.png) ·
+[Editable SVG](reports/figures/retailcast-architecture.svg)
+
+```text
+configs/                 Dataset and training settings
+scripts/                 Inspection, HTTP checks, result/architecture figures
+src/data/                Preparation and EDA
+src/features/            Shared historical feature calculations
+src/models/              Estimators, metrics, two-stage training
+src/api/                 Bundle verification and prediction service
+src/monitoring/          Offline feature-distribution diagnostic
+tests/                   Data, model, API, and monitoring checks
+reports/                 Aggregate evidence and figures
+docs/                    Decisions, tutorials, journal, posts, CV/interview drafts
+.github/workflows/       Configured CI workflow
+```
+
+## Run the already prepared local service
+
+From this repository's root in PowerShell, with Docker Desktop running:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.api.bundle
+docker compose up -d --build
+.\.venv\Scripts\python.exe scripts/smoke_api.py --wait-seconds 60
+```
+
+Open http://127.0.0.1:8000/docs. See [Docker instructions](docs/docker.md) for
+command explanations, health checks, logs, teardown, and troubleshooting.
+For a fresh checkout without generated models, follow discovery, preparation,
+training, and bundle generation in the sections below first.
 
 ## Run the discovery milestone (Windows PowerShell)
 
@@ -143,7 +204,92 @@ Final saved bundle: `models/final/model.joblib` and `metadata.json`.
 Final model version (MLflow run ID): `fe48bb872b9b4d12aac4f7a5c42734e4`.
 Local model files, row-level outputs, and tracking storage are excluded from Git.
 
-Verification: **32 tests pass**, dependencies pass `pip check`, serialized models
+Verification: **54 tests pass on Windows and Linux**, dependencies pass `pip check`, serialized models
 preserve predictions, and saved test metrics reconcile with direct NumPy formulas.
 The dashboard HTTP endpoint and all five finished runs/artifact listings were
-also checked. The API and container milestones remain outstanding.
+also checked. A known upstream test-client deprecation warning does not prevent
+the current tests from passing.
+
+## API contract
+
+| Endpoint | Purpose |
+| --- | --- |
+| `GET /health` | Model readiness and version |
+| `GET /model-info` | Catalog, supported dates, target, metrics, and limitations |
+| `POST /predict` | Product/date validation and seven-day forecast |
+| `GET /metrics` | Process-local request, error, and timing counters |
+
+Example PowerShell request to the container:
+
+```powershell
+$body = @{ product_id = '21212'; forecast_date = '2011-10-01' } | ConvertTo-Json
+Invoke-RestMethod -Method Post -Uri 'http://127.0.0.1:8000/predict' -ContentType 'application/json' -Body $body
+```
+
+The verified model returned `predicted_units: 760.379753318479` for that request.
+Responses include the model run ID and `mode: historical_replay`. This estimate
+is not a measured outcome or inventory recommendation. Unknown products,
+malformed requests, and unavailable dates return 422. Startup fails for missing
+or corrupt bundles. Unexpected inference failures return generic 500 responses.
+
+Supported real-bundle forecast dates are October 1–December 9, 2011. The final
+date can be forecast from retained history even though its full outcome window
+is not available for evaluation. See [API documentation](docs/api.md) for the
+actual response JSON, native-service commands, and input/security boundaries.
+
+## Tests, CI, and operations
+
+```powershell
+.\.venv\Scripts\python.exe -m ruff check src scripts tests
+.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe -m pip check
+.\.venv\Scripts\python.exe -m src.monitoring.drift
+```
+
+The tests cover data rules, temporal boundaries, target/feature arithmetic,
+model serialization, API health/schema/errors, tampering, inference consistency,
+and monitoring diagnostics. Real-data checks also verified feature parity across
+6,480 examples and Linux-container predictions across all 1,260 final test rows.
+
+The CI workflow installs dependencies, runs lint/tests, builds a synthetic-fixture
+container, and checks HTTP behavior. That fixture is clearly labelled and has no
+real model performance claims. **No hosted GitHub Actions success is claimed**;
+the local GitHub CLI is not authenticated and no project remote has been created.
+See [CI/publication instructions](docs/ci-and-github.md).
+
+Request IDs, structured logs, process counters, model versions, range flags, and
+an offline feature-distribution comparison provide monitoring basics. They are
+not durable production monitoring, calibrated alerts, or automatic retraining.
+See [operations](docs/operations.md) and aggregate evidence in
+`reports/container-api-verification.json` and `reports/feature-drift.json`.
+The curated [system verification report](reports/system-verification.json)
+records test counts, container controls, and cross-platform prediction parity.
+
+## Deployment, limitations, and next improvements
+
+Local Docker is the selected deployment. Current cloud options, resource/cost
+limits, and the reason for avoiding a hosting bill are documented in
+[the deployment decision](docs/deployment-decision.md). No paid account or public
+cloud endpoint was created. Data/model files remain local and ignored by Git.
+
+Limitations include old UK transactions, missing stock availability, a selected
+catalog, limited forecasting accuracy, dependent overlapping target windows,
+source-precedence/zero-record assumptions, and no live feed or public API auth.
+The service is a historical engineering demonstration, not an inventory system
+validated for business use. Future work needs new temporal evaluation, richer
+available-at-cutoff signals, product-specific diagnostics, and measured business
+acceptance criteria. Public exposure also requires authenticated TLS ingress,
+rate/body limits, and durable monitoring.
+
+## Portfolio and learning evidence
+
+- [Development journal](docs/development-journal.md)
+- [LinkedIn introduction/discovery](docs/data-discovery.md),
+  [preparation](docs/linkedin-data-preparation.md), [EDA](docs/linkedin-eda.md),
+  [modeling](docs/linkedin-modeling.md), and [serving/delivery/final drafts](docs/linkedin-serving-and-delivery.md)
+- [Role-specific CV and profile descriptions](docs/career-portfolio.md)
+- [Interview walkthrough and practical self-checks](docs/interview-preparation.md)
+- [Release status and remaining gates](docs/completion-status.md)
+
+All posts are drafts, not published messages. The journal records coding-assistant
+support; understanding of the complete system remains a learner self-check.

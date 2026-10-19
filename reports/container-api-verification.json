@@ -1,0 +1,41 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "health": {
+    "status": "ok",
+    "model_loaded": true,
+    "model_version": "fe48bb872b9b4d12aac4f7a5c42734e4"
+  },
+  "request": {
+    "product_id": "21212",
+    "forecast_date": "2011-10-01"
+  },
+  "actual_response": {
+    "product_id": "21212",
+    "forecast_date": "2011-10-01",
+    "horizon_days": 7,
+    "predicted_units": 760.379753318479,
+    "model_version": "fe48bb872b9b4d12aac4f7a5c42734e4",
+    "mode": "historical_replay",
+    "out_of_training_range_features": []
+  },
+  "invalid_request_statuses": {
+    "missing_fields": 422,
+    "unknown_product": 422,
+    "unavailable_date": 422
+  },
+  "process_metrics_snapshot": {
+    "requests": 44,
+    "server_errors": 0,
+    "validation_failures": 4,
+    "predictions": 32,
+    "predictions_with_range_flags": 0,
+    "mean_request_ms": 13.640066772723003,
+    "scope": "current process since startup; not durable or aggregated"
+  },
+  "timing": {
+    "samples": 30,
+    "p50_ms": 21.097549964906648,
+    "p95_ms": 40.219339999021024,
+    "scope": "Sequential localhost HTTP, one warmed model; not a load/capacity benchmark"
+  }
+}
