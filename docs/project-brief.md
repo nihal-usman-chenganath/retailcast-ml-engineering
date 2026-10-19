@@ -53,4 +53,6 @@ No accuracy, latency, deployment, or cost claims have been established.
 The initial implementation selects 20 established products using pre-2011
 history only. Chronological examples are prepared for January–June 2011 training,
 July–September validation, and October–December testing, with target-window
-separation and incomplete final windows excluded. No model has been fitted.
+separation and incomplete final windows excluded. Four candidates have now been
+compared and a random forest refitted/evaluated; see `model-results.md` for the
+actual results and their limitations. API serving is the next milestone.

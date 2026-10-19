@@ -1,0 +1,220 @@
+{
+  "model_name": "random_forest",
+  "model_version": "fe48bb872b9b4d12aac4f7a5c42734e4",
+  "selection_run_id": "c13c6e0868d840f79affd1c661f165f5",
+  "model_sha256": "8a6da6fbf66ee15856f76918dac2db3717560bfdd73477b5acf9482886d6304a",
+  "features": [
+    "product_id",
+    "lag_1",
+    "lag_7",
+    "mean_7",
+    "mean_28",
+    "std_28",
+    "weekday",
+    "month"
+  ],
+  "product_ids": [
+    "21212",
+    "21213",
+    "21232",
+    "21977",
+    "22086",
+    "22178",
+    "22197",
+    "22616",
+    "22740",
+    "22865",
+    "22867",
+    "22910",
+    "22952",
+    "84077",
+    "84347",
+    "84879",
+    "84946",
+    "84991",
+    "85099B",
+    "85123A"
+  ],
+  "target": "gross_recorded_units_next_7_calendar_days",
+  "forecast_cutoff": "start of forecast date; source timestamps as recorded",
+  "prediction_floor": 0,
+  "history_days": 28,
+  "horizon_days": 7,
+  "python_version": "3.11.9",
+  "sklearn_version": "1.7.2",
+  "joblib_version": "1.5.2",
+  "source_checksums": {
+    "src/models/__init__.py": "33b56aac4402e8880e0195937b9e0e700d77a5c5a671744fd08c661bf111d5ec",
+    "src/models/estimators.py": "6919ecf3203f3d0643b9388d0cf48efb4605d4360f3d105633894605cc03e54f",
+    "src/models/metrics.py": "95c09560ebcd08aca6c1db5039418ae5984081a2a0491c1c9b2241469dee830a",
+    "src/models/train.py": "249f69ea3912c107f02487d82aaf0a508680c824d56251847f15f8764ef3d748",
+    "src/data/prepare.py": "083906419bc08b6b4230aa673513cc477b8601e28602023eea565ee4e4dde196",
+    "configs/data.json": "6ed98510efde8e9bdfa94456bcb7fea5ea74c6e21577ca9781aa6be4e84f69dc",
+    "configs/training.json": "c8422982852b91748c8401dcf75634b24ac8e40ab5c62531cd96817ccf6468c3",
+    "requirements.txt": "c942c4620ece995cd3fb54263e53ec3481076400a9fa93892d590fc52ee9ac68"
+  },
+  "data_checksums": {
+    "daily_sales.csv": "3c626df4297f2b810b650285a6d807636a7749f8916ec8e44f7e8bab46457f5d",
+    "selected_products.csv": "643a923c3613baa75c5bd808f8a0697f956ada63f7496aeb5733af4b26fb5f46",
+    "test.csv": "684f46e4ae1b608ff32d02d6b716652e1321e7291de918d9a8a794a1746e2fca",
+    "train.csv": "8f46ad6c692c59bf3e91f0c7d01a012ffe92be1bbea5465051cebfd076a7898a",
+    "validation.csv": "ea7d22329eff091192368faa439ee2e7b81ba11a7a8be5a6ac911e0726d0569f"
+  },
+  "development_rows": 5220,
+  "test_rows": 1260,
+  "development_target_end": "2011-09-30",
+  "test_first_forecast": "2011-10-01",
+  "test_last_forecast": "2011-12-02",
+  "validation_metrics_before_refit": {
+    "mae": 248.48363869244574,
+    "rmse": 410.64659995410886,
+    "r2": 0.1981483864032989
+  },
+  "test_metrics": {
+    "mae": 389.07095813107435,
+    "rmse": 670.7093475053559,
+    "r2": 0.16154765990723152
+  },
+  "test_by_product": [
+    {
+      "product_id": "21212",
+      "examples": 63,
+      "mae": 350.5032029961186,
+      "rmse": 374.10587825210285,
+      "r2": -2.495338102440222
+    },
+    {
+      "product_id": "21213",
+      "examples": 63,
+      "mae": 230.71486234034128,
+      "rmse": 251.61110549112536,
+      "r2": -3.228270945331049
+    },
+    {
+      "product_id": "21232",
+      "examples": 63,
+      "mae": 255.54866003137545,
+      "rmse": 320.4190517745629,
+      "r2": -1.5042155693981414
+    },
+    {
+      "product_id": "21977",
+      "examples": 63,
+      "mae": 387.5468448473485,
+      "rmse": 435.8829886657855,
+      "r2": -3.0782829387707
+    },
+    {
+      "product_id": "22086",
+      "examples": 63,
+      "mae": 747.0789353450325,
+      "rmse": 899.7068463932145,
+      "r2": -1.8984238473561597
+    },
+    {
+      "product_id": "22178",
+      "examples": 63,
+      "mae": 283.98727687463474,
+      "rmse": 370.73190504069777,
+      "r2": -0.11061808848734689
+    },
+    {
+      "product_id": "22197",
+      "examples": 63,
+      "mae": 1387.55314422393,
+      "rmse": 1733.2526026638375,
+      "r2": -1.232741284184466
+    },
+    {
+      "product_id": "22616",
+      "examples": 63,
+      "mae": 303.1593870729483,
+      "rmse": 372.15873716232727,
+      "r2": 0.009938230631370892
+    },
+    {
+      "product_id": "22740",
+      "examples": 63,
+      "mae": 22.433249136879095,
+      "rmse": 30.36839880422689,
+      "r2": null
+    },
+    {
+      "product_id": "22865",
+      "examples": 63,
+      "mae": 154.91922545534248,
+      "rmse": 202.48908583124106,
+      "r2": -0.15112719470073022
+    },
+    {
+      "product_id": "22867",
+      "examples": 63,
+      "mae": 174.61068958020294,
+      "rmse": 198.7333041438853,
+      "r2": -0.8874785547305839
+    },
+    {
+      "product_id": "22910",
+      "examples": 63,
+      "mae": 216.692962271166,
+      "rmse": 280.23313556525557,
+      "r2": -0.017947621212019316
+    },
+    {
+      "product_id": "22952",
+      "examples": 63,
+      "mae": 401.67369895846963,
+      "rmse": 484.4416746878426,
+      "r2": -1.3988809170273226
+    },
+    {
+      "product_id": "84077",
+      "examples": 63,
+      "mae": 811.3612661050694,
+      "rmse": 1627.5222576210804,
+      "r2": -0.3795525168937526
+    },
+    {
+      "product_id": "84347",
+      "examples": 63,
+      "mae": 219.69394883253074,
+      "rmse": 298.79197950807225,
+      "r2": -0.06722669895482736
+    },
+    {
+      "product_id": "84879",
+      "examples": 63,
+      "mae": 429.86386554206376,
+      "rmse": 572.6801567433926,
+      "r2": -0.977085384449434
+    },
+    {
+      "product_id": "84946",
+      "examples": 63,
+      "mae": 212.1054344356619,
+      "rmse": 267.6165833137031,
+      "r2": -0.18690377562219163
+    },
+    {
+      "product_id": "84991",
+      "examples": 63,
+      "mae": 273.15699169587504,
+      "rmse": 315.71156776581984,
+      "r2": -1.9557819767099427
+    },
+    {
+      "product_id": "85099B",
+      "examples": 63,
+      "mae": 541.1260289677364,
+      "rmse": 718.4621181994511,
+      "r2": 0.007252999758253109
+    },
+    {
+      "product_id": "85123A",
+      "examples": 63,
+      "mae": 377.6894879087618,
+      "rmse": 513.1589532079055,
+      "r2": -0.2638185543891143
+    }
+  ]
+}

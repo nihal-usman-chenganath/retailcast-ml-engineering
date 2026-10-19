@@ -94,6 +94,8 @@ untrusted model safe. The API phase will verify our local bundle consistently.
 
 ## Honest interpretation
 
+The actual comparison and final metrics are in [model results](model-results.md).
+
 Training metrics diagnose fit and can be optimistic. Validation decides the
 candidate. The final test measures the selected refitted model without changing
 the decision afterward. Daily rolling-origin assumptions and correlated target

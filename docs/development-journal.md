@@ -84,3 +84,32 @@ Prepare the first LinkedIn post after the initial data inspection confirms scope
 - Prepared an EDA LinkedIn draft with actual measurements and the target chart.
 - Next: implement baselines, candidate model pipelines, and MLflow tracking;
   compare on validation, freeze selection, then evaluate the final model on test.
+
+## 2026-10-19 — Baselines, learned models, MLflow, and final evaluation
+
+- Implemented two historical baselines, Ridge, and a fixed-seed random forest.
+  Added model-facing validation, product-category handling, and a shared
+  nonnegative prediction floor. Learned preprocessing is fitted with its model.
+- Recorded configurations before running the comparison. Source implementation
+  commit: `0ae70ef`; actual source checksums are recorded with every run.
+- Ran all four candidates on the same train/validation rows and tracked the
+  results locally with MLflow (SQLite metadata and local artifacts).
+- Selected the forest by validation MAE: 248.4836 versus 252.9289 for the stronger
+  baseline, a 1.7575% validation reduction. Ridge's RMSE was slightly better;
+  selection followed the previously recorded MAE criterion.
+- Frozen selection run: `c13c6e0868d840f79affd1c661f165f5`.
+- Refit on 5,220 development rows and evaluated the final model on 1,260 test
+  examples. MAE 389.0710, RMSE 670.7093, R² 0.16155. No test-driven tuning followed.
+- Final run/version: `fe48bb872b9b4d12aac4f7a5c42734e4`. Saved the trusted local
+  joblib bundle and metadata; no raw data or model was uploaded.
+- All 32 tests passed; dependency check passed. Verified save/load consistency,
+  model checksum, and test metrics using direct NumPy formulas on saved outputs.
+- Started and checked the localhost MLflow dashboard (HTTP 200), verified five
+  finished runs and their artifacts through its HTTP API, and created/visually
+  reviewed three result charts. Wrote the results/limitations and LinkedIn draft.
+- Automatic approval review blocked the Edge launch for a dashboard screenshot
+  with reason "blocked by policy". The dashboard works, but no screenshot was
+  captured. The server also reported Windows job-backend and upstream WSGI
+  warnings; tracking and dashboard checks passed without that job backend.
+- This is an engineering milestone with modest predictive results, not a claim
+  of a useful inventory optimization model. Next: FastAPI serving and API tests.
