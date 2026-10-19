@@ -1,0 +1,144 @@
+{
+  "source_url": "https://archive.ics.uci.edu/static/public/502/online+retail+ii.zip",
+  "source_page": "https://archive.ics.uci.edu/dataset/502/online+retail+ii",
+  "license": "CC BY 4.0 (as listed by UCI)",
+  "generated_at_utc": "2026-10-19T15:30:00.161754+00:00",
+  "workbook_sha256": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980",
+  "sheets": {
+    "Year 2009-2010": {
+      "rows": 525461,
+      "columns": [
+        "Invoice",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "Price",
+        "Customer ID",
+        "Country"
+      ],
+      "inferred_dtypes": {
+        "Invoice": "object",
+        "StockCode": "object",
+        "Description": "object",
+        "Quantity": "int64",
+        "InvoiceDate": "datetime64[ns]",
+        "Price": "float64",
+        "Customer ID": "float64",
+        "Country": "object"
+      },
+      "missing_values": {
+        "Invoice": 0,
+        "StockCode": 0,
+        "Description": 2928,
+        "Quantity": 0,
+        "InvoiceDate": 0,
+        "Price": 0,
+        "Customer ID": 107927,
+        "Country": 0
+      },
+      "duplicate_rows_beyond_first": 6865,
+      "cancellation_invoice_rows": 10206,
+      "negative_quantity_rows": 12326,
+      "zero_quantity_rows": 0,
+      "nonpositive_price_rows": 3690,
+      "invalid_nonmissing_dates": 0,
+      "invalid_nonmissing_quantities": 0,
+      "invalid_nonmissing_prices": 0,
+      "first_timestamp": "2009-12-01 07:45:00",
+      "last_timestamp": "2010-12-09 20:01:00",
+      "unique_product_codes": 4632,
+      "unique_countries": 40
+    },
+    "Year 2010-2011": {
+      "rows": 541910,
+      "columns": [
+        "Invoice",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "Price",
+        "Customer ID",
+        "Country"
+      ],
+      "inferred_dtypes": {
+        "Invoice": "object",
+        "StockCode": "object",
+        "Description": "object",
+        "Quantity": "int64",
+        "InvoiceDate": "datetime64[ns]",
+        "Price": "float64",
+        "Customer ID": "float64",
+        "Country": "object"
+      },
+      "missing_values": {
+        "Invoice": 0,
+        "StockCode": 0,
+        "Description": 1454,
+        "Quantity": 0,
+        "InvoiceDate": 0,
+        "Price": 0,
+        "Customer ID": 135080,
+        "Country": 0
+      },
+      "duplicate_rows_beyond_first": 5268,
+      "cancellation_invoice_rows": 9288,
+      "negative_quantity_rows": 10624,
+      "zero_quantity_rows": 0,
+      "nonpositive_price_rows": 2517,
+      "invalid_nonmissing_dates": 0,
+      "invalid_nonmissing_quantities": 0,
+      "invalid_nonmissing_prices": 0,
+      "first_timestamp": "2010-12-01 08:26:00",
+      "last_timestamp": "2011-12-09 12:50:00",
+      "unique_product_codes": 4070,
+      "unique_countries": 38
+    }
+  },
+  "combined": {
+    "rows": 1067371,
+    "columns": [
+      "Invoice",
+      "StockCode",
+      "Description",
+      "Quantity",
+      "InvoiceDate",
+      "Price",
+      "Customer ID",
+      "Country"
+    ],
+    "inferred_dtypes": {
+      "Invoice": "object",
+      "StockCode": "object",
+      "Description": "object",
+      "Quantity": "int64",
+      "InvoiceDate": "datetime64[ns]",
+      "Price": "float64",
+      "Customer ID": "float64",
+      "Country": "object"
+    },
+    "missing_values": {
+      "Invoice": 0,
+      "StockCode": 0,
+      "Description": 4382,
+      "Quantity": 0,
+      "InvoiceDate": 0,
+      "Price": 0,
+      "Customer ID": 243007,
+      "Country": 0
+    },
+    "duplicate_rows_beyond_first": 34335,
+    "cancellation_invoice_rows": 19494,
+    "negative_quantity_rows": 22950,
+    "zero_quantity_rows": 0,
+    "nonpositive_price_rows": 6207,
+    "invalid_nonmissing_dates": 0,
+    "invalid_nonmissing_quantities": 0,
+    "invalid_nonmissing_prices": 0,
+    "first_timestamp": "2009-12-01 07:45:00",
+    "last_timestamp": "2011-12-09 12:50:00",
+    "unique_product_codes": 5305,
+    "unique_countries": 43
+  }
+}

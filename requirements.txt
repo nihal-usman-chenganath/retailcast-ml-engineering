@@ -1,0 +1,15 @@
+# Phase 1: reading and inspecting the original Excel dataset.
+# Includes resolved dependencies from the verified Python 3.11 environment.
+et_xmlfile==2.0.0
+numpy==2.4.6
+pandas==2.2.3
+openpyxl==3.1.5
+python-dateutil==2.9.0.post0
+pytz==2026.5
+six==1.17.0
+tzdata==2026.5
+pytest==8.3.5
+colorama==0.4.6; sys_platform == "win32"
+iniconfig==2.1.0
+packaging==25.0
+pluggy==1.5.0

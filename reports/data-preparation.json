@@ -1,0 +1,80 @@
+{
+  "config": {
+    "selection_cutoff": "2011-01-01",
+    "selection_lookback_days": 90,
+    "minimum_active_days": 60,
+    "number_of_products": 20,
+    "validation_start": "2011-07-01",
+    "test_start": "2011-10-01",
+    "horizon_days": 7,
+    "history_days": 28
+  },
+  "sheet_overlap_policy": [
+    {
+      "sheet": "Year 2009-2010",
+      "input_rows": 525461,
+      "retained_rows": 502938,
+      "overlap_rows_excluded": 22523,
+      "exclusive_end": "2010-12-01 00:00:00"
+    },
+    {
+      "sheet": "Year 2010-2011",
+      "input_rows": 541910,
+      "retained_rows": 541910,
+      "overlap_rows_excluded": 0,
+      "exclusive_end": null
+    }
+  ],
+  "excluded_final_source_day": "2011-12-09",
+  "excluded_final_source_day_rows": 1633,
+  "cleaning_sequential_counts": {
+    "input_rows": 1043215,
+    "excluded_cancellations": 19158,
+    "excluded_nonpositive_quantity": 3393,
+    "excluded_nonpositive_price": 2636,
+    "excluded_non_merchandise_code_pattern": 4701,
+    "retained_rows": 1013327,
+    "retained_rows_missing_customer_id": 225752,
+    "retained_exact_duplicates_beyond_first": 11724
+  },
+  "selected_product_count": 20,
+  "daily_rows": 14760,
+  "feature_columns": [
+    "product_id",
+    "lag_1",
+    "lag_7",
+    "mean_7",
+    "mean_28",
+    "std_28",
+    "weekday",
+    "month"
+  ],
+  "splits": {
+    "train": {
+      "rows": 3500,
+      "first_forecast_date": "2011-01-01",
+      "last_forecast_date": "2011-06-24",
+      "last_target_date": "2011-06-30"
+    },
+    "validation": {
+      "rows": 1720,
+      "first_forecast_date": "2011-07-01",
+      "last_forecast_date": "2011-09-24",
+      "last_target_date": "2011-09-30"
+    },
+    "test": {
+      "rows": 1260,
+      "first_forecast_date": "2011-10-01",
+      "last_forecast_date": "2011-12-02",
+      "last_target_date": "2011-12-08"
+    }
+  },
+  "source_sha256": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980",
+  "output_sha256": {
+    "daily_sales.csv": "3c626df4297f2b810b650285a6d807636a7749f8916ec8e44f7e8bab46457f5d",
+    "selected_products.csv": "643a923c3613baa75c5bd808f8a0697f956ada63f7496aeb5733af4b26fb5f46",
+    "test.csv": "684f46e4ae1b608ff32d02d6b716652e1321e7291de918d9a8a794a1746e2fca",
+    "train.csv": "8f46ad6c692c59bf3e91f0c7d01a012ffe92be1bbea5465051cebfd076a7898a",
+    "validation.csv": "ea7d22329eff091192368faa439ee2e7b81ba11a7a8be5a6ac911e0726d0569f"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "selection_cutoff": "2011-01-01",
+  "selection_lookback_days": 90,
+  "minimum_active_days": 60,
+  "number_of_products": 20,
+  "validation_start": "2011-07-01",
+  "test_start": "2011-10-01",
+  "horizon_days": 7,
+  "history_days": 28
+}
